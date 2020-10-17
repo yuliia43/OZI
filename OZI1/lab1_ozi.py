@@ -50,7 +50,7 @@ class Program_menu():
             self.authorization()
 
         else:
-            print(Fore.Red, "Incorrect input")
+            print(Fore.RED, "Incorrect input")
             print(Style.RESET_ALL)
 
     def about(self):
@@ -168,10 +168,12 @@ class Program_menu():
         while confirm_password != new_password:
             if confirm_password is not None:
                 print(Fore.RED, "New password and its confirmation should be equal")
+                print(Style.RESET_ALL)
             print("Confirm new password: ")
             confirm_password = input()
         self.users.change_password(self.current_state, new_password)
         print(Fore.GREEN, "Password was changed successfully")
+        print(Style.RESET_ALL)
 
     def new_password_menu(self):
         print("0. Exit\n"
