@@ -1,11 +1,13 @@
 import re
-from users_structure import *
+import colorama
 from colorama import Fore, Style
+from users_structure import *
 
 
 class Program_menu():
 
     def __init__(self):
+        colorama.init()
         self.exit_menu = False
         self.current_state = "MAIN"
         self.users = UsersStructure()
@@ -43,14 +45,20 @@ class Program_menu():
             print(Style.RESET_ALL)
             self.exit_menu = True
         elif chose == "1":
-            print(Fore.GREEN, "Lab №1 made by Shcherbakova Yuliia IS-71")
-            print(Style.RESET_ALL)
+            self.about()
         elif chose == "2":
             self.authorization()
 
         else:
             print(Fore.Red, "Incorrect input")
             print(Style.RESET_ALL)
+
+    def about(self):
+        print(Fore.GREEN, "Lab №1 made by Shcherbakova Yuliia IS-71\n"
+                          "Task for password constraints: \n"
+                          "Var22. Наявність латинських букв,"
+                          " символів кирилиці, цифр і розділових знаків.")
+        print(Style.RESET_ALL)
 
     def authorization(self):
         print("Input login: ")
@@ -89,8 +97,7 @@ class Program_menu():
             print(Style.RESET_ALL)
             self.exit_menu = True
         elif chose == "1":
-            print(Fore.GREEN, "Lab №1 made by Shcherbakova Yuliia IS-71")
-            print(Style.RESET_ALL)
+            self.about()
         elif chose == "2":
             self.change_password_menu()
         elif self.current_state == "ADMIN":
